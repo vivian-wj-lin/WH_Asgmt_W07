@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>member</title>
+  <style>
+    .head {
+      text-align: center;
+      color: #ffffff;
+      background-color: #1F2839;
+      font-size: 30px;
+      font-weight: bold;
+      padding: 10px 0px;
+    }
+
+    .details {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      line-height: 150%;
+    }
+
+    .button {
+      margin: 5px
+    }
+  </style>
+</head>
+
+<body>
+  <div class="details">
+    <div class="head">歡迎光臨，這是會員頁</div>
+    <h3><span>{{ Hello }}</span>，歡迎登入系統</h3>
+    <a href="/signout">登出系統</a>
+
+    <div class="search">
+    <h3 style="font-weight: bold;" >查詢會員姓名</h3>
+    <input type="text" class="currentName" name="username" placeholder="輸入username查尋name" />
+    <button class="searchButton">查詢</button> <br>
+    </div>
+
+    <div class="update">
+    <h3 style="font-weight: bold;" >更新我的姓名</h3>
+    <input type="text" class="typeNewUsername" name="newUsername" placeholder="輸入新的姓名" />
+    <button class="updateButton">更新</button>  
+    <div class="updateDone"></div>
+    </div>
+    
+  </div>
+    <script type="text/javascript" src="W7.js"></script>
+</body>
+
+</html>
