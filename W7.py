@@ -109,17 +109,14 @@ def name():
         mydb.commit()
         mycursor.close()
         session["name"] = new_name
-        return new_name
-        return {"ok": "true"}
-
-    if not new_name:
-        if session.get(IS_LOGIN, None):
-            return {"error": "true"}
+        return {"ok": True}
+    return {"error": True}
 
 
 @ app.route("/signout")
 def signout():
     session[IS_LOGIN] = False  # 設定登出為 False
+    session["name"] = ""
     return redirect("/")
 
 
@@ -133,6 +130,7 @@ def index_error():
 def signin():
     username = request.form["username"]
     password = request.form["password"]
+    session["username"] = username
     if (username == "" or password == ""):
         return redirect("/error?message=請輸入帳號、密碼")
     mycursor = mydb.cursor()
