@@ -101,12 +101,11 @@ def search_name():
 def name():
     if session.get(IS_LOGIN, None):
         new_name = request.get_json()["name"]
-        # print(new_name)  # new name
-        # print(session["name"])  # old name
+        username = session["username"]
         mycursor = mydb.cursor()
-        select_stmt = "UPDATE member SET name = %(new_name)s WHERE name = %(name)s"
+        select_stmt = "UPDATE member SET name = %(new_name)s WHERE username = %(username)s"
         mycursor.execute(
-            select_stmt, {"name": session["name"], "new_name": new_name})
+            select_stmt, {"new_name": new_name, "username": username})
         mydb.commit()
         mycursor.close()
 
