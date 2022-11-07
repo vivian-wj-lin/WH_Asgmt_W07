@@ -108,10 +108,13 @@ def name():
             select_stmt, {"new_name": new_name, "username": username})
         mydb.commit()
         mycursor.close()
-
         session["name"] = new_name
-
         return new_name
+        return {"ok": "true"}
+
+    if not new_name:
+        if session.get(IS_LOGIN, None):
+            return {"error": "true"}
 
 
 @ app.route("/signout")
